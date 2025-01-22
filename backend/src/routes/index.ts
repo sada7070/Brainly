@@ -6,6 +6,6 @@ const router = Router();
 
 // '/api/v1/user/...' requests goes to the 'userRouter'.
 router.use("/user", userRouter);
-router.use("/content", contentRouter);
+router.use("/dashboard", contentRouter);
 
 export default router;
