@@ -6,7 +6,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-import rootRouter from "./routes/user"
+import rootRouter from "./routes/index";
 
 app.use("/api/v1", rootRouter);
 

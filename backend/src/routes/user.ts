@@ -4,9 +4,10 @@ import jwt from "jsonwebtoken";
 import { userModel } from "../db";
 import bcrypt from "bcrypt";
 
-const router = Router();
+const userRouter = Router();
 
-router.post("/signup", async(req, res) => {
+// 'api/v1/user/...' comes here
+userRouter.post("/signup", async(req, res) => {
     const { userName, password } = req.body;
 
     const requiredBody = z.object({
@@ -64,7 +65,7 @@ router.post("/signup", async(req, res) => {
     }
 })
 
-router.post("/signin", async(req, res) => {
+userRouter.post("/signin", async(req, res) => {
     const { userName, password } = req.body;
 
     const userExist = await userModel.findOne({
@@ -97,4 +98,4 @@ router.post("/signin", async(req, res) => {
     }  
 })
 
-export default router;
+export default userRouter;
