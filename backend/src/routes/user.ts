@@ -6,7 +6,6 @@ import bcrypt from "bcrypt";
 
 const router = Router();
 
-
 router.post("/signup", async(req, res) => {
     const { userName, password } = req.body;
 
@@ -63,6 +62,39 @@ router.post("/signup", async(req, res) => {
             message: "Internal server error."
         });
     }
+})
+
+router.post("/signin", async(req, res) => {
+    const { userName, password } = req.body;
+
+    const userExist = await userModel.findOne({
+        userName: userName
+    });
+
+    if(!userExist) {
+        res.status(403).json({
+            message: "Username does not exist."
+        });
+        return;
+    }
+
+    const passwordMatched = await  bcrypt.compare(password, (userExist!.password as string));
+
+    if(passwordMatched) {
+        const token = jwt.sign({
+        // creating token using unique value(ObjectId)
+            userId: userExist!._id
+        }, process.env.JWT_SECRET!)
+
+        res.status(200).json({
+            message: "Signed in successfully.",
+            token: token
+        })
+    } else {
+        res.status(403).json({
+            message: "Wrong password."
+        })
+    }  
 })
 
 export default router;
