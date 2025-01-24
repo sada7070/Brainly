@@ -9,7 +9,7 @@ const userSchema = new Schema({
     },
     password: String
 })
-export const userModel = model("User", userSchema);
+export const UserModel = model("User", userSchema);
 
 const contentSchema = new Schema({
     title: String,
@@ -22,19 +22,17 @@ const contentSchema = new Schema({
         type: mongoose.Types.ObjectId,
         ref: 'User',
         required: true
-    }
+    },
 })
-export const contentModel = model("Content", contentSchema);
+export const ContentModel = model("Content", contentSchema);
 
 const linkSchema = new Schema({
-    hash: {
-        type: String,
-        required: true
-    },
+    hash: String,
     userId: {
         type: mongoose.Types.ObjectId,
-        ref: "User",
-        required: true
-    }
+        ref: 'User',
+        required: true,
+        unique: true
+    },
 })
-export const linkModel = model("Share", linkSchema);
+export const LinkModel = model("Link", linkSchema);

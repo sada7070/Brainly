@@ -1,6 +1,6 @@
 import { Router } from "express";
 import AuthenticatedRequest, { userMiddleware } from "../middleware";
-import { linkModel } from "../db";
+import { ContentModel, LinkModel, UserModel } from "../db";
 import { generate } from "../utils";
 
 const shareRouter = Router();
@@ -11,27 +11,37 @@ shareRouter.post("/share", userMiddleware, async(req: AuthenticatedRequest, res)
     const share = req.body.share;
 
     if(share) {
-        const URL = await linkModel.create({
+        const existingLink = await LinkModel.findOne({
+            userId : req.userId
+        });
+
+        if(existingLink) {
+            res.json({
+                hash: existingLink.hash
+            })
+            return;
+        }
+
+        const hash = generate(10);
+        await LinkModel.create({
             userId: req.userId,
-            hash: generate(20)
+            hash: hash
         })
-        res.json({
-            message: "Updated sharable link.",
-            URL: URL.hash
+        res.status(200).json({
+            message: "Sharable link generated.",
+            hash
         })
     } else {
-        // if user want to disable the URL.
-        await linkModel.deleteOne({
+        // if user want to disable the hash.
+        await LinkModel.deleteOne({
             userId: req.userId
         });
 
-        res.json({
+        res.status(200).json({
             message: "Sharable link is deleted."
         })
         return;
     }
-
-  
 })
 
 export default shareRouter;

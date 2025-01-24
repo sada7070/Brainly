@@ -1,6 +1,6 @@
 import { Router } from "express";
 import AuthenticatedRequest, { userMiddleware } from "../middleware";
-import { contentModel } from "../db";
+import { ContentModel } from "../db";
 
 const contentRouter = Router();
 
@@ -9,7 +9,7 @@ const contentRouter = Router();
 contentRouter.post("/content",userMiddleware, async(req: AuthenticatedRequest, res) => {
     const { title, link } = req.body;
 
-    await contentModel.create({
+    await ContentModel.create({
         title,
         link,
         tags: [],
@@ -24,7 +24,7 @@ contentRouter.post("/content",userMiddleware, async(req: AuthenticatedRequest, r
 // Fetching all existing documents (no pagination).
 contentRouter.get("/content", userMiddleware, async(req: AuthenticatedRequest, res) => {
     const userId = req.userId;
-    const content = await contentModel.find({
+    const content = await ContentModel.find({
         userId: userId
     }).populate("userId", "userName");
     res.json({
@@ -36,7 +36,7 @@ contentRouter.get("/content", userMiddleware, async(req: AuthenticatedRequest, r
 contentRouter.delete("/content", userMiddleware, async(req: AuthenticatedRequest, res) => {
     const contentId = req.body.contentId;
 
-    await contentModel.deleteMany({
+    await ContentModel.deleteMany({
         _id: contentId,
         userId: req.userId
     })

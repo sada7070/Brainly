@@ -1,7 +1,7 @@
 import { Router } from "express";
 import z from "zod";
 import jwt from "jsonwebtoken";
-import { userModel } from "../db";
+import { UserModel } from "../db";
 import bcrypt from "bcrypt";
 
 const userRouter = Router();
@@ -26,7 +26,7 @@ userRouter.post("/signup", async(req, res) => {
     }
 
     try{
-        const existingUser = await userModel.findOne({ userName });
+        const existingUser = await UserModel.findOne({ userName });
 
         // checking whether user already exist or not.
         if(existingUser) {
@@ -40,7 +40,7 @@ userRouter.post("/signup", async(req, res) => {
         const hashedPassword = await bcrypt.hash(password, 5);
 
         // adding user into DB
-        const user = userModel.create({
+        const user = UserModel.create({
             userName,
             password: hashedPassword
         });
@@ -68,7 +68,7 @@ userRouter.post("/signup", async(req, res) => {
 userRouter.post("/signin", async(req, res) => {
     const { userName, password } = req.body;
 
-    const userExist = await userModel.findOne({
+    const userExist = await UserModel.findOne({
         userName: userName
     });
 

@@ -4,8 +4,8 @@ export function generate(len: number) {
     let ans = "";
 
     for(let i = 0; i < len; i++) {
-        const index = Math.floor(Math.random() * lenght);           // 0 to 36(random number of options)
-        ans += options[index];   
+        ans += options[Math.floor(Math.random() * lenght)];           // 0 to 36(random number of options)   
     }
-    return(ans);
+
+    return ans;
 }
