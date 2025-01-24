@@ -44,4 +44,44 @@ shareRouter.post("/share", userMiddleware, async(req: AuthenticatedRequest, res)
     }
 })
 
+// '/api/v1/brain/(hash)' comes here('hash' is the sharable link generated from the above route).
+shareRouter.get("/:shareLink", async(req: AuthenticatedRequest, res) => {
+    const hash = req.params.shareLink;
+
+    // finding the corresponding link using the entered hash.
+    const link = await LinkModel.findOne({
+        hash
+    });
+
+    // if the link not exist(because of worng hash).
+    if(!link) {
+        res.status(404).json({
+            message: "Incorrect URL."
+        })
+        return;
+    }
+
+    // agregation
+    // retriving content using userId(userID is present in both table).
+    const content = await ContentModel.find({
+        userId: link.userId
+    })
+
+    // retriving user's id(_id) using userId(userID and _id contains same value).
+    const user = await UserModel.findOne({
+        _id: link.userId
+    })
+
+    if(!user) {
+        res.json({
+            message: "User does not exist. Ideally this error should not come."
+        })
+    }
+
+    res.status(200).json({
+        userName: user?.userName,
+        content: content
+    })
+})
+
 export default shareRouter;
