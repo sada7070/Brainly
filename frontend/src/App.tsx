@@ -1,7 +1,7 @@
 function App() {
   return <div>
-        Brainly
-    </div>
+    Brainly
+  </div>
 }
 
 export default App

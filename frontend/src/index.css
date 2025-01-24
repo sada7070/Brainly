@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+@theme {
+    --color-purple-600: #5046e4;            /*background of primary & text of secondary button*/
+    --color-purple-200: #e0e7ff;            /*background of secondary & text of primary button*/
+    --color-gray-200: #f9fbfc;              /*background color of homepage*/
+    --color-gray-700: #383c4c;              /*text color*/
+    --color-gray-100: #ffffff;              /*card & sidebar background*/   
+}
