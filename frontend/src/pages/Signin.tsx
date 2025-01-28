@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button } from "../components/authComponents/Button";
+import { AuthButton } from "../components/authComponents/AuthButton";
 import { ButtonWarning } from "../components/authComponents/ButtonWarning";
 import { Heading } from "../components/authComponents/Heading";
 import { InputBox } from "../components/authComponents/InputBox";
@@ -23,7 +23,7 @@ export function Signin() {
                 <InputBox onChange={(e) => {
                     setPassword(e.target.value);
                 }} label="Password" placeholder="*******"/>
-                <Button onClick={async() => {
+                <AuthButton onClick={async() => {
                     const response = await axios.post("http://localhost:3000/api/v1/user/signin", {
                         userName,
                         password

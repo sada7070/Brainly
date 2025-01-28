@@ -3,7 +3,7 @@ interface ButtonProps {
     onClick: () => void;
 }
 
-export function Button({label, onClick}: ButtonProps) {
+export function AuthButton({label, onClick}: ButtonProps) {
     return (
         <button 
         onClick={onClick}

@@ -7,11 +7,12 @@ const contentRouter = Router();
 // '/api/v1/dashboard/...' comes here.
 // Add new content.
 contentRouter.post("/content",userMiddleware, async(req: AuthenticatedRequest, res) => {
-    const { title, link } = req.body;
+    const { title, link, type } = req.body;
 
     await ContentModel.create({
         title,
         link,
+        type,
         tags: [],
         userId: req.userId
     })
