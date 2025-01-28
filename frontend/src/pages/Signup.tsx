@@ -19,7 +19,7 @@ export function Signup() {
                 <Button onClick={() => {
 
                 }} label="Sign Up" />
-                <ButtonWarning label="Already have an account? " buttonText="Signin" to={"/sigin"} />
+                <ButtonWarning label="Already have an account? " buttonText="SignIn" to={"/signin"} />
             </div>
         </div>
     </div>
