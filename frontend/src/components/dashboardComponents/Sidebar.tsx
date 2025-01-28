@@ -1,6 +1,6 @@
-import { BrianIcon } from "../icons/BrianIcom";
-import { TwitterIcon } from "../icons/TwitterIcon";
-import { YoutubeIcon } from "../icons/YoutubeIcon";
+import { BrianIcon } from "../../icons/BrianIcom";
+import { TwitterIcon } from "../../icons/TwitterIcon";
+import { YoutubeIcon } from "../../icons/YoutubeIcon";
 import { SideItem } from "./SideItem";
 
 export function Sidebar() {

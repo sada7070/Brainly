@@ -1,10 +1,10 @@
 import { useState } from "react"
-import { Button } from "../components/Button"
-import { Card } from "../components/Card"
-import { CreateContentModal } from "../components/CreateContentModal"
+import { Button } from "../components/dashboardComponents/Button"
+import { Card } from "../components/dashboardComponents/Card"
+import { CreateContentModal } from "../components/dashboardComponents/CreateContentModal"
 import { PlusIcon } from "../icons/PlusIcon"
 import { ShareIcon } from "../icons/ShareIcon"
-import { Sidebar } from "../components/Sidebar"
+import { Sidebar } from "../components/dashboardComponents/Sidebar"
 
 export function Dashboard() {
   const[modalOpen, setModalOpen] = useState(false);

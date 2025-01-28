@@ -1,5 +1,5 @@
 // building the component which PopUp when we clicked 'Add post' button.
-import { CrossIcon } from "../icons/CrossIcon";
+import { CrossIcon } from "../../icons/CrossIcon";
 import { Button } from "./Button";
 
 interface CreateContentModalProps {

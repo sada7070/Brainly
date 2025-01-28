@@ -1,5 +1,5 @@
-import { PlusIcon } from "../icons/PlusIcon";
-import { ShareIcon } from "../icons/ShareIcon";
+import { PlusIcon } from "../../icons/PlusIcon";
+import { ShareIcon } from "../../icons/ShareIcon";
 
 interface CardProps {
     title: string;
