@@ -65,6 +65,7 @@ export function CreateContentModal({open, onClose}: CreateContentModalProps) {
                                         Authorization: localStorage.getItem("token")
                                     }
                                 });
+                                onClose();
                             }} label="Submit"/>
                         </div>
                     </div>

@@ -9,7 +9,7 @@ interface CardProps {
 
 export function Card({title, link, type}: CardProps) {
     return <div> 
-        <div className="bg-gray-100 roundede-md outline-slate-200 p-4 max-w-70 border border-slate-200 rounded-md min-h-40 max-h-100">
+        <div className="bg-gray-100 roundede-md outline-slate-200 p-4 max-w-70 border border-slate-200 rounded-md">
             <div className="flex justify-between">
                 <div className="flex items-center">
                     <div className="pr-2 text-gray-700">
