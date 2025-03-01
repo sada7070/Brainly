@@ -1,8 +1,10 @@
+import { Footer } from "../components/homepageComponents/Footer";
 import { Navbar } from "../components/homepageComponents/Navbar";
 
 export function Home() {
     return <div>
        <Navbar />
+
        <div className="flex pt-15 pl-20">
         <div>
             <h1 className="text-3xl md:text-7xl font-extrabold text-start text-purple-600 leading-tight tracking-wide coda-regular">
@@ -16,5 +18,7 @@ export function Home() {
             </h1>
         </div>
        </div>
+
+       <Footer />
     </div>
 }
