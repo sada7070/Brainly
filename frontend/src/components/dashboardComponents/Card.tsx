@@ -1,3 +1,4 @@
+import { CrossIcon } from "../../icons/CrossIcon";
 import { PlusIcon } from "../../icons/PlusIcon";
 import { ShareIcon } from "../../icons/ShareIcon";
 
@@ -23,7 +24,8 @@ export function Card({title, link, type}: CardProps) {
                             <ShareIcon />
                         </a>
                     </div>
-                    <ShareIcon />
+                    
+                    <CrossIcon />
                 </div>
             </div>
 

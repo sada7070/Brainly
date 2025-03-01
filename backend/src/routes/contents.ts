@@ -28,6 +28,10 @@ contentRouter.get("/content", userMiddleware, async(req: AuthenticatedRequest, r
     const content = await ContentModel.find({
         userId: userId
     }).populate("userId", "userName");
+    // const reqid = content[0].userId!._id;
+    // console.log(reqid);
+    console.log(userId);
+    console.log(content);
     res.json({
         content
     })
@@ -37,7 +41,7 @@ contentRouter.get("/content", userMiddleware, async(req: AuthenticatedRequest, r
 contentRouter.delete("/content", userMiddleware, async(req: AuthenticatedRequest, res) => {
     const contentId = req.body.contentId;
 
-    await ContentModel.deleteMany({
+    await ContentModel.deleteOne({
         _id: contentId,
         userId: req.userId
     })

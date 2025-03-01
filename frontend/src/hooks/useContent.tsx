@@ -10,8 +10,9 @@ export function useContent() {
             headers: {
                 Authorization: localStorage.getItem("token")
             }
-        })
-            .then((response) => {
+        }).then((response) => {
+                console.log("use hook");
+                console.log(response.data.content)
                 setContents(response.data.content)
             })
     }
