@@ -25,7 +25,6 @@ export function ContentList({ filterType}: any) {
         Authorization: localStorage.getItem("token"),
       },
     });
-
     const shareURL = `http://localhost:5173/share/${response.data.hash}`;
     navigator.clipboard.writeText(shareURL);
     setShowPopup(true);
@@ -35,14 +34,17 @@ export function ContentList({ filterType}: any) {
   return (
     <div>
       <Sidebar />
+
       <div className="p-4 ml-72 min-h-screen bg-gray-200">
         <CreateContentModal open={modalOpen} onClose={() => setModalOpen(false)} />
 
+        {/* buttons */}
         <div className="flex justify-end pr-4 gap-4">
           <Button onClick={handleShare} variant="secondary" text="Share Brain" startIcon={<ShareIcon />} />
           <Button onClick={() => setModalOpen(true)} variant="primary" text="Add Content" startIcon={<PlusIcon />} />
         </div>
 
+        {/* card */}
         <div className="flex gap-4 pt-4 flex-wrap">
           {contents
             .filter(({ type }) => !filterType || type === filterType)
@@ -60,7 +62,7 @@ export function ContentList({ filterType}: any) {
             ))}
         </div>
 
-        
+        {/* popup alert */}
         {showPopup && (
           <div className="fixed bottom-4 right-4 bg-gray-800 text-white px-4 py-2 rounded-lg shadow-lg">
             URL copied to clipboard!
