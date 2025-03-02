@@ -12,7 +12,7 @@ const variantClasses = {
     "secondary": "bg-purple-200 text-purple-600",
 };
 
-const defaultStyles = "py-2 px-4 rounded-md flex items-center cursor-pointer"
+const defaultStyles = "py-2 px-4 rounded-md flex items-center cursor-pointer "
 
 export function Button({variant, text, startIcon, onClick}: Buttonprops) {
     return <button onClick={onClick} className={variantClasses[variant] + "  " + defaultStyles}>
