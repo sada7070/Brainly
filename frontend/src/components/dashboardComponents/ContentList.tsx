@@ -46,8 +46,18 @@ export function ContentList({ filterType}: any) {
         <div className="flex gap-4 pt-4 flex-wrap">
           {contents
             .filter(({ type }) => !filterType || type === filterType)
-            .map(({ title, type, link }) => (
-              <Card key={link} type={type} link={link} title={title} />
+            .map(({ _id, title, type, link }) => (
+              <Card onClick={() => {
+                console.log("Deleting ID:", _id);
+                axios.delete("http://localhost:3000/api/v1/dashboard/content/", {
+                  data: {
+                    contentId: _id
+                  },
+                  headers: {
+                    Authorization: localStorage.getItem("token")
+                  },
+                });
+              }} key={_id} type={type} link={link} title={title} />
             ))}
         </div>
 

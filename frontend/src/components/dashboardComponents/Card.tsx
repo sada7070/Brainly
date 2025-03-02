@@ -5,10 +5,11 @@ import { ShareIcon } from "../../icons/ShareIcon";
 interface CardProps {
     title: string;
     link: string;
-    type: "twitter" | "youtube"
+    type: "twitter" | "youtube";
+    onClick: () => void;
 }
 
-export function Card({title, link, type}: CardProps) {
+export function Card({title, link, type, onClick}: CardProps) {
     return <div> 
         <div className="bg-gray-100 roundede-md outline-slate-200 p-4 max-w-70 border border-slate-200 rounded-md">
             <div className="flex justify-between">
@@ -24,15 +25,22 @@ export function Card({title, link, type}: CardProps) {
                             <ShareIcon />
                         </a>
                     </div>
-                    
+                </div>
+                <div onClick={onClick} className="flex items-center pr-1 text-gray-400">
                     <CrossIcon />
                 </div>
             </div>
 
             <div className="pt-4">
-                {type === "youtube" &&  <iframe className="w-full" src={link.replace("watch", "embed").replace("?v=", "/")} title="YouTube video player" 
-                frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe> }
+                {type === "youtube" &&  
+                    <iframe 
+                        className="w-full" 
+                        src={link.replace("watch", "embed").replace("?v=", "/")} 
+                        title="YouTube video player" 
+                        frameBorder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        referrerPolicy="strict-origin-when-cross-origin" allowFullScreen
+                    ></iframe> }
                 
                 {type === "twitter" && <blockquote 
                     className="twitter-tweet">
