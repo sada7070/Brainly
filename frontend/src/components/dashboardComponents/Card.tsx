@@ -1,5 +1,4 @@
 import { CrossIcon } from "../../icons/CrossIcon";
-import { PlusIcon } from "../../icons/PlusIcon";
 import { ShareIcon } from "../../icons/ShareIcon";
 
 interface CardProps {
@@ -12,23 +11,23 @@ interface CardProps {
 export function Card({title, link, type, onClick}: CardProps) {
     return <div> 
         <div className="bg-gray-100 roundede-md outline-slate-200 p-4 max-w-70 border border-slate-200 rounded-md">
-            <div className="flex justify-between">
-                <div className="flex items-center">
+            <div className="flex">
+                <div className="flex items-center justify-end">
                     <div className="pr-2 text-gray-700">
-                        <PlusIcon/>
                     </div>
                     {title}
                 </div>
-                <div className="flex items-center pr-1 text-gray-400">
-                    <div className="pr-3">
+                <div className="flex items-center pr-1 text-gray-600 cursor-pointer ml-auto">
+                    <div>
                         <a href={link} target="_blank">
                             <ShareIcon />
                         </a>
                     </div>
-                </div>
-                <div onClick={onClick} className="flex items-center pr-1 text-gray-400">
+                    <div onClick={onClick} className="flex items-center pr-1">
                     <CrossIcon />
+                    </div>
                 </div>
+               
             </div>
 
             <div className="pt-4">

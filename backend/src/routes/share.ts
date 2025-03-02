@@ -15,6 +15,7 @@ shareRouter.post("/share", userMiddleware, async(req: AuthenticatedRequest, res)
             userId : req.userId
         });
 
+        // if hash already exist for that user then share it
         if(existingLink) {
             res.json({
                 hash: existingLink.hash
@@ -22,6 +23,7 @@ shareRouter.post("/share", userMiddleware, async(req: AuthenticatedRequest, res)
             return;
         }
 
+        // if hash is not present, generate one
         const hash = generate(10);
         await LinkModel.create({
             userId: req.userId,

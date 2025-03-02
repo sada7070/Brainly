@@ -48,7 +48,6 @@ export function ContentList({ filterType}: any) {
             .filter(({ type }) => !filterType || type === filterType)
             .map(({ _id, title, type, link }) => (
               <Card onClick={() => {
-                console.log("Deleting ID:", _id);
                 axios.delete("http://localhost:3000/api/v1/dashboard/content/", {
                   data: {
                     contentId: _id
@@ -61,6 +60,7 @@ export function ContentList({ filterType}: any) {
             ))}
         </div>
 
+        
         {showPopup && (
           <div className="fixed bottom-4 right-4 bg-gray-800 text-white px-4 py-2 rounded-lg shadow-lg">
             URL copied to clipboard!
