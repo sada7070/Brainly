@@ -8,7 +8,7 @@ export function Footer() {
     return <div>
         <footer className="rounded-lg shadow-sm mt-40">
             <div className="w-full px-20 md:flex md:items-center md:justify-between">
-            <span className="flex justify-center items-center text-sm pb-4 text-gray-800 sm:text-center dark:text-gray-800">Made with <HeartIcon /> Sada. All Rights Reserved.
+            <span className="flex justify-center items-center text-sm pb-4 text-gray-800 sm:text-center dark:text-gray-800">@2025 Made with <HeartIcon /> by Sada. All Rights Reserved.
             </span>
             <ul className="flex flex-wrap items-center mt-3 text-sm gap-5 font-medium text-gray-500 dark:text-gray-400 sm:mt-0">
                 <li>

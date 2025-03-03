@@ -3,5 +3,7 @@
 import { ContentList } from "../components/dashboardComponents/ContentList";
 
 export function Dashboard() {
-  return <ContentList />;
+  return <div className="">
+      <ContentList />
+    </div>;
 }

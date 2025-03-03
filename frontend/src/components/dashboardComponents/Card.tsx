@@ -10,7 +10,7 @@ interface CardProps {
 
 export function Card({title, link, type, onClick}: CardProps) {
     return <div> 
-        <div className="bg-gray-100 roundede-md outline-slate-200 p-4 max-w-70 border border-slate-200 rounded-md">
+        <div className="bg-gray-100 outline-slate-200 p-4 max-w-70 border-1 border-purple-600 rounded-md shadow-xl inset-shadow-sm inset-shadow-purple-200">
             <div className="flex">
                 <div className="flex items-center justify-end">
                     <div className="pr-2 text-gray-700">
@@ -23,7 +23,7 @@ export function Card({title, link, type, onClick}: CardProps) {
                             <ShareIcon />
                         </a>
                     </div>
-                    <div onClick={onClick} className="flex items-center pr-1">
+                    <div onClick={onClick} className="flex items-center pl-3">
                     <CrossIcon />
                     </div>
                 </div>

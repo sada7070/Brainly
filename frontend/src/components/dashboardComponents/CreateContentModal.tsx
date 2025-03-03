@@ -29,9 +29,9 @@ export function CreateContentModal({open, onClose}: CreateContentModalProps) {
             {/* This div addes new content */}
             <div className="h-screen w-screen fixed top-0 left-0 flex justify-center"> 
                 <div className="flex flex-col justify-center">
-                    <div className="bg-white opacity-100 p-4 rounded-md">
+                    <div className="bg-white opacity-100 p-4 max-w-70 border-6 border-indigo-300 rounded-md shadow-xl inset-shadow-sm inset-shadow-purple-200">
                         <div className="flex justify-between">
-                                <div className="px-4 text-xl">
+                                <div className="px-4 text-xl font-medium">
                                     Add Content
                                 </div>
                                 <div onClick={onClose} className="cursor-pointer flex justify-end">
@@ -39,22 +39,33 @@ export function CreateContentModal({open, onClose}: CreateContentModalProps) {
                                 </div>
                         </div>
                         <div>
-                            <Input onChange={(e) => {
-                                setTitle(e.target.value);
-                            }} placeholder={"Title"} />
-                            <Input onChange={(e) => {
-                                setLink(e.target.value);
-                            }} placeholder={"Link"} />
+                            <div>
+                                <Input onChange={(e) => {
+                                    setTitle(e.target.value);
+                                }} placeholder={"Title"} />
+                            </div>
+                            <div className="-mt-4">
+                                <Input onChange={(e) => {
+                                    setLink(e.target.value);
+                                }} placeholder={"Link"} />
+                            </div>
+                           
                         </div>
-                        <div className="flex gap-2 justify-center items-center pb-4">
-                            <Button text="Youtube" variant={type === ContentType.YouTube ? "primary" : "secondary"} onClick={() => {
-                                setType(ContentType.YouTube);
-                            }}></Button>
-                            <Button text="Twitter" variant={type === ContentType.Twitter ? "primary" : "secondary"} onClick={() => {
-                                setType(ContentType.Twitter);
-                            }}></Button>
+                        <div className="flex gap-3 justify-center items-center py-2 ">
+                            <div className="transition delay-100 duration-300 ease-in-out hover:translate-y-1 hover:translate-z-1 hover:scale-110">
+                                <Button text="Youtube" variant={type === ContentType.YouTube ? "primary" : "secondary"} onClick={() => {
+                                    setType(ContentType.YouTube);
+                                }}></Button>
+                            </div>
+                            <div className="transition delay-100 duration-300 ease-in-out hover:translate-y-1 hover:translate-z-1 hover:scale-110">
+                                <Button text="Twitter" variant={type === ContentType.Twitter ? "primary" : "secondary"} onClick={() => {
+                                    setType(ContentType.Twitter);
+                                }}></Button>
+                            </div>
+                            
+                            
                         </div>
-                        <div className="flex justify-center px-2">
+                        <div className="flex justify-center mx-2 pl-2 -mt-1">
                             <AuthButton onClick={async() => {
                                 await axios.post("http://localhost:3000/api/v1/dashboard/content", {
                                     title,
@@ -83,6 +94,6 @@ interface InputProps {
 // InputBox component
 function Input({onChange, placeholder}: InputProps) {
     return <div>
-        <input placeholder={placeholder} type={"text"} className="m-4 border border-slate-200 rounded" onChange={onChange}></input>
+        <input placeholder={placeholder} type={"text"} className="m-4 rounded border-2 border-gray-300" onChange={onChange}></input>
     </div>
 }

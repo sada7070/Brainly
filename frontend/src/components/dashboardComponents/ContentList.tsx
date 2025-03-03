@@ -32,10 +32,10 @@ export function ContentList({ filterType}: any) {
   };
 
   return (
-    <div>
+    <div className="bg-gradient-to-r from-purple-100 to-purple-200">
       <Sidebar />
 
-      <div className="p-4 ml-72 min-h-screen bg-gray-200">
+      <div className="p-4 ml-72 min-h-screen">
         <CreateContentModal open={modalOpen} onClose={() => setModalOpen(false)} />
 
         {/* buttons */}

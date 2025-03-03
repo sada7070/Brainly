@@ -7,7 +7,9 @@ export function Navbar() {
 
     return <div>
         <div className="flex justify-between pt-3 px-10 ">
-            <div className="flex text-2xl font-medium pl-4 pb-5 pt-1 items-center">
+            <div onClick={() => {
+                    navigate("/");
+                }} className="flex text-3xl font-medium pl-4 pb-5 pt-1 items-center font-coda">
                 <BrianIcon />
                 <div className="pl-4">
                     BRAINLY
