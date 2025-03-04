@@ -6,10 +6,10 @@ import { useNavigate } from "react-router-dom";
 export function Home() {
     const navigate = useNavigate();
 
-    return <div className="bg-gradient-to-r from-purple-100 to-purple-600">
+    return <div className="h-screen w-screen bg-gradient-to-r from-purple-100 to-purple-600">
        <Navbar />
 
-       <div className="flex pt-15 pl-20">
+       <div className="flex pl-20">
         <div>
             <h1 className=" text-3xl md:text-7xl font-extrabold text-start text-purple-600 leading-tight tracking-wide coda-regular">
                 Save tweets, videos
@@ -29,6 +29,8 @@ export function Home() {
         </div>
        </div>
 
-       <Footer />
+        <div className="pt-14">
+            <Footer />
+        </div>
     </div>
 }
