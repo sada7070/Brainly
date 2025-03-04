@@ -1,6 +1,6 @@
 import { useShare } from "../hooks/useShare";
 import { Card } from "../components/dashboardComponents/Card";
-import { BrianIcon } from "../icons/BrianIcom";
+import { BrianIcon } from "../icons/BrianIcon";
 
 export function SharedContentPage() {
     const { shareContent } = useShare();

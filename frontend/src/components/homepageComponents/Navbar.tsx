@@ -1,6 +1,6 @@
 import { Button } from "../dashboardComponents/Button"; 
 import { useNavigate } from "react-router-dom"
-import { BrianIcon } from "../../icons/BrianIcom";
+import { BrianIcon } from "../../icons/BrianIcon";
 
 export function Navbar() {
     const navigate = useNavigate();

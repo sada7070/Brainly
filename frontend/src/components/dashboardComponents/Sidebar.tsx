@@ -1,5 +1,5 @@
 import axios from "axios";
-import { BrianIcon } from "../../icons/BrianIcom";
+import { BrianIcon } from "../../icons/BrianIcon";
 import { TwitterIcon } from "../../icons/TwitterIcon";
 import { YoutubeIcon } from "../../icons/YoutubeIcon";
 import { SideItem } from "./SideItem";
