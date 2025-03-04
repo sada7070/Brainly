@@ -11,7 +11,7 @@ export function Home() {
 
        <div className="flex pl-20">
         <div>
-            <h1 className=" text-3xl md:text-7xl font-extrabold text-start text-purple-600 leading-tight tracking-wide coda-regular">
+            <h1 className="text-3xl md:text-7xl font-extrabold text-start text-purple-600 leading-tight tracking-wide coda-regular">
                 Save tweets, videos
                 <br />
                 your smart link organizer.
