@@ -10,4 +10,7 @@ import rootRouter from "./routes/index";
 
 app.use("/api/v1", rootRouter);
 
-app.listen(3000);
+
+const port = process.env.PORT!;
+
+export default app;
