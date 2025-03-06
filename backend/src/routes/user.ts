@@ -46,7 +46,6 @@ userRouter.post("/signup", async(req, res) => {
         });
 
         const userId = (await user)._id;
-        console.log(userId);
 
         // generating token.
         const token = jwt.sign({

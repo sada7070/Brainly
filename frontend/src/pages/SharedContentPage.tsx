@@ -16,7 +16,6 @@ export function SharedContentPage() {
                             title={title} 
                             link={link} 
                             type={type} 
-                            onClick={() => console.log("Clicked on shared content")} 
                         />
                     ))
                 ) : (
