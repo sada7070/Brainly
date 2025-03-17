@@ -18,14 +18,14 @@ export function ContentList({ filterType}: any) {
   }, [modalOpen]);
 
   const handleShare = async () => {
-    const response = await axios.post("http://localhost:3000/api/v1/brain/share", {
+    const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/v1/brain/share`, {
       share: true,
     }, {
       headers: {
         Authorization: localStorage.getItem("token"),
       },
     });
-    const shareURL = `http://localhost:5173/share/${response.data.hash}`;
+    const shareURL = `${import.meta.env.VITE_FE_URL}/share/${response.data.hash}`;
     navigator.clipboard.writeText(shareURL);
     setShowPopup(true);
     setTimeout(() => setShowPopup(false), 3000);

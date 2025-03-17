@@ -6,6 +6,7 @@ import { Home } from "./pages/Home";
 import { TwitterPosts } from "./pages/TwitterPosts";
 import { YoutubePosts } from "./pages/YoutubePosts";
 import { SharedContentPage } from "./pages/SharedContentPage";
+console.log(import.meta.env.VITE_API_URL);
 
 function App() {
   return <div>
