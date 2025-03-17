@@ -3,7 +3,11 @@ import express from "express";
 import cors from "cors";
 const app = express();
 
-app.use(cors({ origin: ["http://localhost:5137", "https://brainly-fullstack.vercel.app/"] }));
+app.use(cors({
+    origin: ["https://brainly-fullstack.vercel.app", "http://localhost:5173"], // Allow frontend origins
+    methods: "GET,POST,PUT,DELETE", 
+    credentials: true // Allow cookies/auth headers
+}));
 app.use(express.json());
 
 import rootRouter from "./routes/index";
