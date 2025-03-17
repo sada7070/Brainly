@@ -9,10 +9,11 @@ app.use(cors({
     allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true // Allow cookies/auth headers
 }));
-// Ensure preflight (OPTIONS) requests get a proper response
-app.options("*", cors());
 
 app.use(express.json());
+
+// Ensure preflight (OPTIONS) requests get a proper response
+app.options("*", cors());
 
 import rootRouter from "./routes/index";
 
