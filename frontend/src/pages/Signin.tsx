@@ -24,7 +24,7 @@ export function Signin() {
                     setPassword(e.target.value);
                 }} label="Password" placeholder="*******"/>
                 <AuthButton onClick={async() => {
-                    const response = await axios.post("http://localhost:3000/api/v1/user/signin", {
+                    const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/v1/user/signin`, {
                         userName,
                         password
                     });

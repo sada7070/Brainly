@@ -8,7 +8,7 @@ export function useShare() {
 
     useEffect(() => {
         if (shareLink) {
-            axios.get(`http://localhost:3000/api/v1/brain/${shareLink}`)
+            axios.get(`${import.meta.env.VITE_API_URL}/api/v1/brain/${shareLink}`)
                 .then((response) => {
                     setShareContent(response.data.content);
                 })

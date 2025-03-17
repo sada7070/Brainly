@@ -14,7 +14,7 @@ export function Sidebar() {
     const deleteShareLink = async () => {
         try {
           await axios.post(
-            "http://localhost:3000/api/v1/brain/share", {
+            `${import.meta.env.VITE_API_URL}/api/v1/brain/share`, {
                 share: false
             }, {
               headers: {

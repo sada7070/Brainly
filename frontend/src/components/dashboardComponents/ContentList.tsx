@@ -50,7 +50,7 @@ export function ContentList({ filterType}: any) {
             .filter(({ type }) => !filterType || type === filterType)
             .map(({ _id, title, type, link }) => (
               <Card onClick={() => {
-                axios.delete("http://localhost:3000/api/v1/dashboard/content/", {
+                axios.delete(`${import.meta.env.VITE_API_URL}/api/v1/dashboard/content/`, {
                   data: {
                     contentId: _id
                   },

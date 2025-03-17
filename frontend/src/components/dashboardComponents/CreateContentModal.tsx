@@ -67,7 +67,7 @@ export function CreateContentModal({open, onClose}: CreateContentModalProps) {
                         </div>
                         <div className="flex justify-center mx-2 pl-2 -mt-1">
                             <AuthButton onClick={async() => {
-                                await axios.post("http://localhost:3000/api/v1/dashboard/content", {
+                                await axios.post(`${import.meta.env.VITE_API_URL}/api/v1/dashboard/content`, {
                                     title,
                                     link,
                                     type

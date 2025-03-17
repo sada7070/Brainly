@@ -6,7 +6,7 @@ export function useContent() {
     const[contents, setContents] = useState([]);
 
     function refresh() {
-        axios.get("http://localhost:3000/api/v1/dashboard/content", {
+        axios.get(`${import.meta.env.VITE_API_URL}/api/v1/dashboard/content`, {
             headers: {
                 Authorization: localStorage.getItem("token")
             }
